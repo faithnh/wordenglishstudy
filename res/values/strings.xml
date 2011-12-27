@@ -2,6 +2,13 @@
 <resources>
 
     <string name="hello">Hello World, WordenglishstudyActivity!</string>
-    <string name="app_name">Wordenglishstudy</string>
+    <string name="app_name">Word English Study</string>
+    <string name="test">test word</string>
+    <string name="test_title">Test word</string>
+    <string name="test_discription">To examine word test in word list.</string>
+    <string name="register_word_title">Register words</string>
+    <string name="register_word_discription">Register a new word in word list.</string>
+    <string name="answer_button">View Answer</string>
+    <string name="check">Check</string>
 
 </resources>
