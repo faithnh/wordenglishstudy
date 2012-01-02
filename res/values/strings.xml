@@ -5,10 +5,25 @@
     <string name="app_name">Word English Study</string>
     <string name="test">test word</string>
     <string name="test_title">Test word</string>
-    <string name="test_discription">To examine word test in word list.</string>
+    <string name="test_description">To examine word test in word list.</string>
     <string name="register_word_title">Register words</string>
-    <string name="register_word_discription">Register a new word in word list.</string>
+    <string name="register_word_description">Register a new word in word list.</string>
     <string name="answer_button">View Answer</string>
     <string name="check">Check</string>
+    <string name="delete_wordlistmes">Do you delete the word list?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="warning">Warning!!</string>
+    <string name="deleteword_title">Delete Word List</string>
+    <string name="deleteword_description">To delete the word list.</string>
+    <string name="search">Search</string>
+    <string name="register">Register</string>
+    <string name="editwordlist_title">Edit word list</string>
+    <string name="editwordlist_description">You can edit the word list.</string>
+    <string name="delete_wordmes">Do you delete following the word from the word list?</string>
+    <string name="editword_menu">Edit Word Menu</string>
+    <string name="view_transrate">View</string>
+    <string name="delete_word">Delete</string>
+    <string name="wordinfo">Word information</string>
 
 </resources>
