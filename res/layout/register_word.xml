@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/inputWordTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_word_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:textSize="@dimen/headword_font_size_middle" />
+
+    <EditText
+        android:id="@+id/inputWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1" 
+        android:textSize="@dimen/text_font_size_middle" />
+
+    <Button
+        android:id="@+id/searchWordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/search" 
+        android:textSize="@dimen/button_font_size_middle" />
+
+    <WebView
+        android:id="@+id/searchResult"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" 
+        android:textSize="@dimen/text_font_size_middle" />
+
+    <LinearLayout
+        android:id="@+id/registerWordLinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/playPronunciationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pronunciation"
+            android:layout_gravity="left"
+            android:textSize="@dimen/button_font_size_middle" />
+
+        <Button
+            android:id="@+id/registerWordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:layout_gravity="right"
+            android:textSize="@dimen/button_font_size_middle" />
+
+    </LinearLayout>
+
+</LinearLayout>
