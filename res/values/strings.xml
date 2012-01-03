@@ -25,5 +25,20 @@
     <string name="view_transrate">View</string>
     <string name="delete_word">Delete</string>
     <string name="wordinfo">Word information</string>
-
+    <string name="search_word_mes">Search the word...Please wait...</string>
+    <string name="search_pro_mes">Search the pronunciation...Please wait...</string>
+    <string name="pronunciation">Pronunciation</string>
+    <dimen name="headword_font_size_big">48dp</dimen>
+	<dimen name="headword_font_size_middle">36dp</dimen>
+	<dimen name="headword_font_size_small">28dp</dimen>
+	<dimen name="text_font_size_big">36dp</dimen>
+	<dimen name="text_font_size_middle">28dp</dimen>
+	<dimen name="text_font_size_small">22dp</dimen>
+    <dimen name="button_font_size_big">34dp</dimen>
+	<dimen name="button_font_size_middle">26dp</dimen>
+	<dimen name="button_font_size_small">20dp</dimen>
+	<string name="problem_title">Problem</string>
+	<string name="end_confirm_title">End apprication</string>
+	<string name="end_confirm_message">Do you end really?</string>
+	
 </resources>

@@ -10,25 +10,28 @@ import faithnh.study.wordenglishstudy.common.ListManu;
 import faithnh.study.wordenglishstudy.common.ListManuAdapter;
 import faithnh.study.wordenglishstudy.testaction.WordDictionary;
 import faithnh.study.wordenglishstudy.testaction.WordDictionaryManager;
-import faithnh.study.wordenglishstudy.util.Message;
+import faithnh.study.wordenglishstudy.util.OriginalMessage;
+import faithnh.study.wordenglishstudy.util.SequenceGenerator;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+import android.os.Process;
 
 public class WordenglishstudyActivity extends Activity {
-    /** Called when the activity is first created. */
+    
+	static final int DIALOG_END_YES_NO = 0;
+    
 	ListView listView;
 	private ArrayList list = null;
 	private ListManuAdapter adapter = null; 
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -82,20 +85,25 @@ public class WordenglishstudyActivity extends Activity {
     //テストボタンを押したときの処理
     public void onClickTestButton() {
         try {
-
+        	
 			ArrayList<WordDictionary> wordlist =
 					WordDictionaryManager.getWordDictionary(
 								Constances.SDCARD_WORD_DICTIONARY);
             if(wordlist.size() > 0){
-				Intent intent = new Intent(
+            	int problemCounter = 1;
+            	ArrayList<Integer> problemSequence =
+            			SequenceGenerator.createRandomSequence(wordlist.size());
+            	Intent intent = new Intent(
                 		WordenglishstudyActivity.this,
                 		WordTestActivity.class );
                 
                 intent.setAction(Intent.ACTION_VIEW);
 				intent.putExtra(Constances.WORD_DICTIONARY, wordlist);
+				intent.putExtra(Constances.PROBLEM_COUNTER, problemCounter);
+				intent.putExtra(Constances.PROBLEM_SEQUENCE, problemSequence);
 				startActivity( intent );
             }else{
-                Message.AlertMessage(WordenglishstudyActivity.this,
+                OriginalMessage.AlertMessage(WordenglishstudyActivity.this,
                 		ErrorMessages.NOWORDS);
             }
 		} catch (Exception e) {
@@ -150,6 +158,42 @@ public class WordenglishstudyActivity extends Activity {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+    }
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+    	switch (event.getAction()) {
+    		case KeyEvent.ACTION_DOWN:
+    			switch (event.getKeyCode()) {
+    				case KeyEvent.KEYCODE_BACK:
+    					showDialog(DIALOG_END_YES_NO);
+    				return true;
+    			}
+    	}
+    	return super.dispatchKeyEvent(event);
+    }
+    //アプリ終了確認ダイアログ
+    @Override
+    protected Dialog onCreateDialog(int id){
+    	switch(id){
+    		case DIALOG_END_YES_NO:
+    		return new AlertDialog.Builder(this)
+			    		.setTitle(R.string.end_confirm_title)
+			    		.setMessage(R.string.end_confirm_message)
+			    		.setPositiveButton(R.string.yes,
+			    				new DialogInterface.OnClickListener(){
+			    			public void onClick(DialogInterface dialog, int whichButton){
+			    				finish();
+			    			}
+			    		})
+			    		.setNegativeButton(R.string.no,
+			    				new DialogInterface.OnClickListener(){
+			    			public void onClick(DialogInterface dialog, int whichButton){    				
+			    			}
+			    		})
+			    		.create();
+
+    	}
+		return null;
     }
 }
 
